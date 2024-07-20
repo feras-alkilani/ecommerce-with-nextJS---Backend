@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks",
+      "required": true
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "instantDelivery": {
+      "type": "boolean",
+      "required": true
+    },
+    "files": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "whatsIncluded": {
+      "type": "blocks",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Tech",
+        "Marketing",
+        "security"
+      ],
+      "required": true
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::order.order",
+      "mappedBy": "products"
+    }
+  }
+}
